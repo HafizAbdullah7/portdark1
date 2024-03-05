@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import { urlFor, client } from '../../client';
 import { AppWrap } from '../../wrapper';
 import { images } from '../../constants';
 import './Header.scss';
+import  { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 
@@ -21,6 +22,30 @@ const scaleVariants = {
 const Header = () => {
   const mode = useSelector(state => state.darkMode.mode);
   
+//fetching my photo from sanity
+const [profile, setProfile] = useState([]);
+
+  useEffect(() => {
+    const query = '*[_type == "profile"]';
+
+    client.fetch(query).then((data) => {
+      setProfile(data);
+    });
+  }, []);
+  
+//dark mode
+
+const [profiledk, setProfiledk] = useState([]);
+
+  useEffect(() => {
+    const query = '*[_type == "profiledk"]';
+
+    client.fetch(query).then((data) => {
+      setProfiledk(data);
+    });
+  }, []);
+  
+
   return(
   <>
   <div className={`app__header app__flex  bg ${mode === 'light'?'dark-mode':'light-mode'}`}>
@@ -39,9 +64,19 @@ const Header = () => {
         </div>
 
         <div className={`tag-cmp ${ mode === 'light'?'dark-mode':'light-mode'} app__flex`}>
+          
           <p className={`${mode==='light'?'p-text2':'p-text'}`}>Web Developer</p>
           <p className={`${mode==='light'?'p-text2':'p-text'}`}>Freelancer</p>
+          
         </div>
+         
+         {/*<div>
+           
+           <button>hhhh</button>
+            <> </>
+
+  </div>*/}
+
       </div>
     </motion.div>
 
@@ -50,9 +85,15 @@ const Header = () => {
       transition={{ duration: 0.5, delayChildren: 0.5 }}
       className="app__header-img"
     >
+     { mode==='light'?
      
-      <img src={images.bkphoto} alt="profile_bg" />
-     
+     profiledk.map((profiledk) => (
+      <img src={urlFor(profiledk.imgUrl)} alt={profiledk.title}  />))
+    
+:
+profile.map((profile) => (
+  <img src={urlFor(profile.imgUrl)} alt={profile.title}  />))
+    }
       <motion.img
         whileInView={{ scale: [0, 1] }}
         transition={{ duration: 1, ease: 'easeInOut' }}
