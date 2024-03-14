@@ -64,7 +64,14 @@ const Navbar = ({handleToggleMode,mode}) => {
   </label>
 </div>
 
-        
+        {/*  toggle dark mode button small devices*/}
+
+        <label class="ui-switch">
+  <input type="checkbox" onClick={handleToggleMode}/>
+  <div class="slider">
+    <div class="circle"></div>
+  </div>
+</label>
 
 
 

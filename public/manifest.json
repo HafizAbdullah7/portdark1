@@ -1,19 +1,19 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Portfolio App",
+  "name": "Hafiz Abdullah Portfolio",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "mylogo2.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "myphoto2.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "myphoto.png",
       "type": "image/png",
       "sizes": "512x512"
     }

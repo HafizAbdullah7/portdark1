@@ -69,7 +69,10 @@ const [profiledk, setProfiledk] = useState([]);
           <p className={`${mode==='light'?'p-text2':'p-text'}`}>Freelancer</p>
           
         </div>
-         
+        
+       
+        <a href={images.Resume} className="cv p-text1" download="Hafiz Abdullah">Download CV</a>
+
          {/*<div>
            
            <button>hhhh</button>
