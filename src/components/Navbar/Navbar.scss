@@ -456,7 +456,7 @@
   --circle-bg:  #1eabec;
   --circle-inset: calc((var(--circle-diameter) - var(--switch-height)) / 2);
         position: relative;
-        right: -55px;
+        right: -47px;
   @media screen and (min-width: 900px) {
     display: none;
    
@@ -477,9 +477,7 @@
   border-radius: 999px;
   position: relative;
   cursor: pointer;
-  &:hover {
-    --circle-bg: #2430af;
-  }
+  
 }
 
 .slider .circle {
